@@ -14,7 +14,7 @@ function backupMinioToMinio() {
   mc mb minioBackup/backup${date}
   echo "Create new bucket on ${MINIO_BACKUP}: backup${date}"
   
-  mc --json ls minio | perl -nle 's/.*\"key\":\"(.*)/\".*/bucket: \1/x and print'
+  mc --json ls minio | grep -Po '"key":.*?[^\\]",'|awk -F':' '{print $2}' | cut -d \" -f2
   
   #mc cp -r minio/* minioBackup/backup${date}
   #echo "Copy ${MINIO_ENDPOINT} to ${MINIO_BACKUP}/backup${date}"
