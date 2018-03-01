@@ -7,7 +7,7 @@ ENV MINIO_SECRET_KEY=secret_key
 ENV MINIO_BACKUP_ACCESS_KEY=access_key
 ENV MINIO_BACKUP_SECRET_KEY=secret_key
 
-RUN apk add --no-cache bash
+RUN apk add --no-cache bash perl
 
 COPY entrypoint.sh .
 
