@@ -11,7 +11,7 @@ function backupMinioToMinio() {
   
   date=$(date +"%d_%m_%Y")
   
-  pc mb minioBackup/Backup${date}
+  mc mb minioBackup/Backup${date}
   echo "Create new bucket on ${MINIO_BACKUP}: Backup${date}"
   
   mc cp -r minio minioBackup/Backup${date}
