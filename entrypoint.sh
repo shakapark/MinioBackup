@@ -19,4 +19,5 @@ function backupMinioToMinio() {
 
 }
 
+echo "Start Backup"
 backupMinioToMinio
