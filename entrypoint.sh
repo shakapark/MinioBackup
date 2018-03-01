@@ -16,7 +16,8 @@ function backupMinioToMinio() {
   
   mc cp -r minio/* minioBackup/backup${date}
   echo "Copy ${MINIO_ENDPOINT} to ${MINIO_BACKUP}/backup${date}"
-
+  
+  exit 0
 }
 
 echo "Start Backup"
