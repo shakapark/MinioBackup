@@ -14,7 +14,7 @@ function backupMinioToMinio() {
   mc mb minioBackup/backup${date}
   echo "Create new bucket on ${MINIO_BACKUP}: backup${date}"
   
-  BUCKETS=$(mc --json ls minio | grep -Po '"key":.*?[^\\]",'|awk -F':' '{print $2}' | cut -d \" -f2 | cut -d / -f1)
+  BUCKETS=$(mc --json ls minio | grep -Eo '"key":.*?[^\\]",'|awk -F':' '{print $2}' | cut -d \" -f2 | cut -d / -f1)
   echo ${BUCKETS}| while read BUCKET
   do
     echo $BUCKET
