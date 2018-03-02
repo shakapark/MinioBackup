@@ -10,4 +10,4 @@ RUN apk add --no-cache bash perl
 COPY entrypoint.sh .
 RUN chmod a+x /entrypoint.sh
 
-CMD ["./entrypoint.sh"]
+ENTRYPOINT ["./entrypoint.sh"]
