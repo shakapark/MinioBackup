@@ -12,8 +12,8 @@ function backupMinioToMinio() {
     mc cp -r $SRC/$BUCKET $DST/$DATE
   done
 
-  DATE=$(date -d $DATE - $RETENTION +"%d-%m-%Y")
-  echo $DATE
+  DATE=$(date -d "$RETENTION days ago" +"%d-%m-%Y")
+  mc rm --recursive --force $DST/$DATE
 }
 
 echo "Start Backup"
