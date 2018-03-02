@@ -2,6 +2,7 @@
 set -e
 
 function backupMinioToMinio() {
+  echo "Starting Backup"
 
   DATE=$(date +"%d-%m-%Y")
   mc mb $DST/$DATE
@@ -14,10 +15,9 @@ function backupMinioToMinio() {
 
   DATE=$(date -d "$RETENTION days ago" +"%d-%m-%Y")
   mc rm --recursive --force $DST/$DATE
+
+  echo "Backup Done"
 }
 
-date --version
-
-#echo "Start Backup"
-#backupMinioToMinio
+backupMinioToMinio
 exit 0
