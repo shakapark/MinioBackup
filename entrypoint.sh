@@ -16,6 +16,8 @@ function backupMinioToMinio() {
   mc rm --recursive --force $DST/$DATE
 }
 
-echo "Start Backup"
-backupMinioToMinio
+date --help
+
+#echo "Start Backup"
+#backupMinioToMinio
 exit 0
