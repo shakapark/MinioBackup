@@ -5,7 +5,8 @@ ENV DST=minio_backup
 # Number of retention days
 ENV RETENTION=7
 
-RUN apk add --no-cache bash perl
+RUN apk add --no-cache bash \
+                       date
 
 COPY entrypoint.sh .
 RUN chmod a+x /entrypoint.sh
