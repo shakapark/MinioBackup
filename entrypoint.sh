@@ -1,5 +1,4 @@
 #!/bin/bash
-set -e
 
 function backupMinioToMinio() {
   echo "Starting Backup"
