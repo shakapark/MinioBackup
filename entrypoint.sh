@@ -19,5 +19,5 @@ function backupMinioToMinio() {
   echo "Backup Done"
 }
 
-backupMinioToMinio
+#backupMinioToMinio
 exit 0
