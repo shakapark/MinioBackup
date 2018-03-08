@@ -15,7 +15,6 @@ function backupMinioToMinio() {
   for BUCKET in $BUCKETS
   do
     mc cp -r $SRC/$BUCKET $DST/$DATE
-    echo $?
     if [ $? != 0 ]
     then
       exit 1
@@ -23,7 +22,8 @@ function backupMinioToMinio() {
   done
 
   echo "Backup Done"
+
+  exit 0
 }
 
 backupMinioToMinio
-exit 0
