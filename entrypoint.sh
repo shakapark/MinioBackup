@@ -26,4 +26,12 @@ function backupMinioToMinio() {
   exit 0
 }
 
-backupMinioToMinio
+function wait() {
+  while true;
+  do
+    sleep 10
+  done
+}
+
+#backupMinioToMinio
+wait
