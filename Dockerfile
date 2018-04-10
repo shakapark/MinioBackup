@@ -1,14 +1,17 @@
-FROM minio/mc:RELEASE.2018-02-09T23-07-36Z
+FROM alpine:3.7
 
-ENV SRC=minio_needed_to_be_backup
-ENV DST=minio_backup
-# Number of retention days
-ENV RETENTION=7
+RUN apk --no-cache add bash \
+                       curl
+RUN apk add --update --no-cache coreutils \
+                                python \
+                                python-dev \
+                                py-pip \
+    && pip install awscli
 
-RUN apk add --no-cache bash
-RUN apk add --update --no-cache coreutils
+RUN curl  https://dl.minio.io/client/mc/release/linux-amd64/mc -o /usr/bin/mc && \
+    chmod +x /usr/bin/mc
 
-COPY entrypoint.sh .
+ADD entrypoint.sh /
 RUN chmod a+x /entrypoint.sh
 
-ENTRYPOINT ["./entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
